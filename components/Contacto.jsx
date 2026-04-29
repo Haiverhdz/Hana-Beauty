@@ -49,7 +49,7 @@ export default function Contacto() {
             Agenda tu <em>cita</em>
           </h2>
           <p className={styles.text}>
-            Escríbenos y te responderemos a la brevedad. Con gusto te
+            Escríbenos y te responderemos a la menor brevedad. Con gusto te
             asesoramos para encontrar el look perfecto para tu ocasión especial.
           </p>
 

@@ -9,7 +9,7 @@ export default function Hero() {
 
       <div className={styles.inner}>
         <div className={styles.content}>
-          <p className={styles.eyebrow}>Studio de Cosmetología</p>
+          <p className={styles.eyebrow}>Centro de belleza integral</p>
 
           <h1 className={styles.title}>
             Donde el arte

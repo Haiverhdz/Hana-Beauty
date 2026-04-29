@@ -1,18 +1,24 @@
-import styles from './Footer.module.css'
+import styles from "./Footer.module.css";
+import Image from "next/image";
 
 export default function Footer() {
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
         <div className={styles.brand}>
           <a href="#" className={styles.logo}>
-            <span className={styles.logoHana}>Hana</span>
-            <span className={styles.logoBeauty}>Beauty</span>
+            <Image
+              src="/images/galeria/logo.webp"
+              alt="Hana Beauty"
+              width={120}
+              height={60}
+              priority
+            />
           </a>
           <p className={styles.tagline}>
-            Arte que transforma. Belleza que inspira.
+            No transformamos quién eres, resaltamos lo mejor de ti.
           </p>
           <div className={styles.socials}>
             <a
@@ -41,12 +47,12 @@ export default function Footer() {
             <h4 className={styles.colTitle}>Servicios</h4>
             <ul className={styles.colList}>
               {[
-                'Maquillaje Artístico',
-                'Maquillaje Social',
-                'Maquillaje de Novia',
-                'Maquillaje Quinceañeras',
-                'Maquillaje Glam',
-                'Maquillaje Piel Madura',
+                "Maquillaje Artístico",
+                "Maquillaje Social",
+                "Maquillaje de Novia",
+                "Maquillaje Quinceañeras",
+                "Maquillaje Glam",
+                "Maquillaje Piel Madura",
               ].map((s) => (
                 <li key={s}>
                   <a href="#servicios" className={styles.colLink}>
@@ -61,10 +67,10 @@ export default function Footer() {
             <h4 className={styles.colTitle}>Tratamientos</h4>
             <ul className={styles.colList}>
               {[
-                'Body Painting Maternal',
-                'Pestañas Punto a Punto',
-                'Lifting de Pestañas',
-                'Cejas con Henna',
+                "Body Painting Maternal",
+                "Pestañas Punto a Punto",
+                "Lifting de Pestañas",
+                "Cejas con Henna",
               ].map((s) => (
                 <li key={s}>
                   <a href="#servicios" className={styles.colLink}>
@@ -79,12 +85,22 @@ export default function Footer() {
             <h4 className={styles.colTitle}>Contacto</h4>
             <ul className={styles.colList}>
               <li>
-                <a href="https://wa.me/573127963323" target="_blank" rel="noopener noreferrer" className={styles.colLink}>
+                <a
+                  href="https://wa.me/573127963323"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.colLink}
+                >
                   +57 312 796 3323
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/hanadez_beauty/" target="_blank" rel="noopener noreferrer" className={styles.colLink}>
+                <a
+                  href="https://www.instagram.com/hanadez_beauty/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.colLink}
+                >
                   @hanabeauty
                 </a>
               </li>
@@ -99,10 +115,26 @@ export default function Footer() {
         <p className={styles.copy}>
           © {year} Hana Beauty. Todos los derechos reservados.
         </p>
+        <div>
+          <p className={styles.copy} style={{ color: "#ffff" }}>
+            creado por
+            <a
+              href="https://haiverhdez.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#ffff43" }}
+            >
+              Haiver Hernandez-Desarrollador web
+            </a>
+          </p>
+          <a className={styles.copy}  href="https://haiverhdez.me/" style={{ color: "#ffff43" }}>
+            https://haiverhdez.me/
+          </a>
+        </div>
         <a href="#" className={styles.backTop}>
           Volver arriba ↑
         </a>
       </div>
     </footer>
-  )
+  );
 }

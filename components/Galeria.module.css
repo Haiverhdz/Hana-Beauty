@@ -266,3 +266,67 @@
 @media (max-width: 400px) {
   .grid { columns: 1; }
 }
+
+.verMasWrap {
+  text-align: center;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.verMasBtn {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--deep);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+
+.verMasBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--rose));
+  top: -50px;
+}
+
+.verMasBtn:hover {
+  color: var(--rose);
+}
+
+.verMasBtn:hover .verMasArrow {
+  transform: translateY(4px);
+}
+
+.verMasCount {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  font-weight: 300;
+}
+
+.verMasArrow {
+  display: block;
+  font-size: 1rem;
+  color: var(--rose);
+  line-height: 1;
+  transition: transform 0.4s ease;
+  margin-top: 0.25rem;
+}

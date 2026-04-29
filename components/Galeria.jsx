@@ -3,33 +3,22 @@
 import { useState } from 'react'
 import styles from './Galeria.module.css'
 
-// All 32 photos organized by service
 const fotos = [
-  // Maquillaje Artístico — 7 fotos (ids 1-7)
   { id: 1, src: '/images/galeria/artistico-1.webp', servicio: 'Maquillaje Artístico', categoria: 'artistico' },
   { id: 2, src: '/images/galeria/artistico-2.webp', servicio: 'Maquillaje Artístico', categoria: 'artistico' },
   { id: 3, src: '/images/galeria/artistico-3.webp', servicio: 'Maquillaje Artístico', categoria: 'artistico' },
   { id: 4, src: '/images/galeria/artistico-4.webp', servicio: 'Maquillaje Artístico', categoria: 'artistico' },
   { id: 5, src: '/images/galeria/artistico-5.webp', servicio: 'Maquillaje Artístico', categoria: 'artistico' },
   { id: 6, src: '/images/galeria/1.webp', servicio: 'Maquillaje Artístico', categoria: 'artistico' },
-
-  // Body Painting Maternal — 1 foto
+  { id: 7, src: '/images/galeria/artistico-7.webp', servicio: 'Maquillaje Artístico', categoria: 'artistico' },
   { id: 8, src: '/images/galeria/7.webp', servicio: 'Body Painting Maternal', categoria: 'body' },
-
-  // Quinceañeras — 3 fotos
   { id: 9, src: '/images/galeria/quince-1.webp', servicio: 'Maquillaje Quinceañeras', categoria: 'quince' },
   { id: 10, src: '/images/galeria/quince-2.webp', servicio: 'Maquillaje Quinceañeras', categoria: 'quince' },
   { id: 11, src: '/images/galeria/4.webp', servicio: 'Maquillaje Quinceañeras', categoria: 'quince' },
-
-  // Novia — 2 fotos
   { id: 12, src: '/images/galeria/3.webp', servicio: 'Maquillaje de Novia', categoria: 'novia' },
   { id: 13, src: '/images/galeria/novia-1.webp', servicio: 'Maquillaje de Novia', categoria: 'novia' },
-
-  // Piel Madura — 2 fotos
   { id: 14, src: '/images/galeria/6.webp', servicio: 'Maquillaje Piel Madura', categoria: 'madura' },
   { id: 15, src: '/images/galeria/madura-2.webp', servicio: 'Maquillaje Piel Madura', categoria: 'madura' },
-
-  // Social — 7 fotos
   { id: 16, src: '/images/galeria/social-1.webp', servicio: 'Maquillaje Social', categoria: 'social' },
   { id: 17, src: '/images/galeria/social-2.webp', servicio: 'Maquillaje Social', categoria: 'social' },
   { id: 18, src: '/images/galeria/social-3.webp', servicio: 'Maquillaje Social', categoria: 'social' },
@@ -37,22 +26,16 @@ const fotos = [
   { id: 20, src: '/images/galeria/social-5.webp', servicio: 'Maquillaje Social', categoria: 'social' },
   { id: 21, src: '/images/galeria/social-6.webp', servicio: 'Maquillaje Social', categoria: 'social' },
   { id: 22, src: '/images/galeria/2.webp', servicio: 'Maquillaje Social', categoria: 'social' },
-
-  // Glam — 3 fotos
   { id: 23, src: '/images/galeria/glam-1.webp', servicio: 'Maquillaje Glam', categoria: 'glam' },
   { id: 24, src: '/images/galeria/5.webp', servicio: 'Maquillaje Glam', categoria: 'glam' },
   { id: 25, src: '/images/galeria/glam-3.webp', servicio: 'Maquillaje Glam', categoria: 'glam' },
-
-  // Pestañas Punto a Punto — 2 fotos
   { id: 26, src: '/images/galeria/pestanas-1.webp', servicio: 'Pestañas Punto a Punto', categoria: 'pestanas' },
   { id: 27, src: '/images/galeria/8.webp', servicio: 'Pestañas Punto a Punto', categoria: 'pestanas' },
-
-  // Cejas Henna — 1 foto
   { id: 28, src: '/images/galeria/10.webp', servicio: 'Cejas con Henna', categoria: 'henna' },
-
-  // Lifting de Pestañas — 2 fotos
   { id: 29, src: '/images/galeria/lifting-1.webp', servicio: 'Lifting de Pestañas', categoria: 'lifting' },
   { id: 30, src: '/images/galeria/9.webp', servicio: 'Lifting de Pestañas', categoria: 'lifting' },
+  { id: 31, src: '/images/galeria/laminado-1.webp', servicio: 'Laminado de Cejas', categoria: 'laminado' },
+  { id: 32, src: '/images/galeria/11.webp', servicio: 'Laminado de Cejas', categoria: 'laminado' },
 ]
 
 const categorias = [
@@ -67,14 +50,25 @@ const categorias = [
   { key: 'pestanas', label: 'Pestañas' },
   { key: 'henna', label: 'Cejas Henna' },
   { key: 'lifting', label: 'Lifting' },
+  { key: 'laminado', label: 'Laminado' },
 ]
+
+const INITIAL_COUNT = 8
 
 export default function Galeria() {
   const [filtro, setFiltro] = useState('all')
-  const [lightbox, setLightbox] = useState(null) // index in filtered list
+  const [visibles, setVisibles] = useState(INITIAL_COUNT)
+  const [lightbox, setLightbox] = useState(null)
   const [lightboxList, setLightboxList] = useState([])
 
   const filtered = filtro === 'all' ? fotos : fotos.filter((f) => f.categoria === filtro)
+  const mostradas = filtered.slice(0, visibles)
+  const hayMas = visibles < filtered.length
+
+  const handleFiltro = (key) => {
+    setFiltro(key)
+    setVisibles(INITIAL_COUNT)
+  }
 
   const openLightbox = (foto, list) => {
     const idx = list.findIndex((f) => f.id === foto.id)
@@ -84,42 +78,49 @@ export default function Galeria() {
 
   const closeLightbox = () => setLightbox(null)
 
-  const prev = () => setLightbox((i) => (i - 1 + lightboxList.length) % lightboxList.length)
-  const next = () => setLightbox((i) => (i + 1) % lightboxList.length)
+  const prev = () => {
+    setLightbox((i) => (i - 1 + lightboxList.length) % lightboxList.length)
+  }
+
+  const next = () => {
+    setLightbox((i) => (i + 1) % lightboxList.length)
+  }
+
+  // ← corregido: cerrar también con tecla Escape
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') closeLightbox()
+    if (e.key === 'ArrowLeft') prev()
+    if (e.key === 'ArrowRight') next()
+  }
 
   const currentFoto = lightbox !== null ? lightboxList[lightbox] : null
 
   return (
     <section id="galeria" className={styles.section}>
       <div className={styles.inner}>
-        {/* Header */}
+
         <div className={styles.header}>
           <p className={styles.eyebrow}>Nuestro trabajo</p>
-          <h2 className={styles.title}>
-            La <em>Galería</em>
-          </h2>
+          <h2 className={styles.title}>La <em>Galería</em></h2>
           <p className={styles.subtitle}>
-            {fotos.length} obras de arte. Cada imagen, una historia de
-            transformación.
+            {fotos.length} obras de arte. Cada imagen, una historia de transformación.
           </p>
         </div>
 
-        {/* Filters */}
         <div className={styles.filtros}>
           {categorias.map((c) => (
             <button
               key={c.key}
               className={`${styles.filtro} ${filtro === c.key ? styles.filtroActive : ''}`}
-              onClick={() => setFiltro(c.key)}
+              onClick={() => handleFiltro(c.key)}
             >
               {c.label}
             </button>
           ))}
         </div>
 
-        {/* Masonry grid */}
         <div className={styles.grid}>
-          {filtered.map((foto, i) => (
+          {mostradas.map((foto, i) => (
             <button
               key={foto.id}
               className={styles.item}
@@ -135,12 +136,36 @@ export default function Galeria() {
             </button>
           ))}
         </div>
+
+        {hayMas && (
+          <div className={styles.verMasWrap}>
+            <button
+              className={styles.verMasBtn}
+              onClick={() => setVisibles((v) => v + INITIAL_COUNT)}
+            >
+              Ver más fotos
+              <span className={styles.verMasCount}>{filtered.length - visibles} imágenes</span>
+              <span className={styles.verMasArrow}>↓</span>
+            </button>
+          </div>
+        )}
+
       </div>
 
-      {/* Lightbox */}
+      {/* ← onKeyDown en el overlay para navegar con teclado */}
       {currentFoto && (
-        <div className={styles.lightbox} onClick={closeLightbox}>
-          <button className={styles.closeBtn} onClick={closeLightbox} aria-label="Cerrar">✕</button>
+        <div
+          className={styles.lightbox}
+          onClick={closeLightbox}
+          onKeyDown={handleKeyDown}
+          tabIndex={-1}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Visor de imagen"
+        >
+          <button className={styles.closeBtn} onClick={closeLightbox} aria-label="Cerrar">
+            ✕
+          </button>
 
           <button
             className={`${styles.navBtn} ${styles.navPrev}`}
