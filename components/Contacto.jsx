@@ -1,43 +1,46 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import styles from './Contacto.module.css'
+import { useState } from "react";
+import styles from "./Contacto.module.css";
+import { WhatsApp } from "./svg/WhatsApp";
+import { Instagram } from "./svg/Instagram";
+import { GoogleMaps } from "./svg/Maps";
 
 export default function Contacto() {
   const [form, setForm] = useState({
-    nombre: '',
-    whatsapp: '',
-    servicio: '',
-    fecha: '',
-    mensaje: '',
-  })
-  const [enviado, setEnviado] = useState(false)
+    nombre: "",
+    whatsapp: "",
+    servicio: "",
+    fecha: "",
+    mensaje: "",
+  });
+  const [enviado, setEnviado] = useState(false);
 
   const serviciosList = [
-    'Maquillaje Artístico',
-    'Maquillaje Social',
-    'Maquillaje de Novia',
-    'Maquillaje Quinceañeras',
-    'Maquillaje Glam',
-    'Maquillaje Piel Madura',
-    'Body Painting Maternal',
-    'Pestañas Punto a Punto',
-    'Lifting de Pestañas',
-    'Cejas con Henna',
-  ]
+    "Maquillaje Artístico",
+    "Maquillaje Social",
+    "Maquillaje de Novia",
+    "Maquillaje Quinceañeras",
+    "Maquillaje Glam",
+    "Maquillaje Piel Madura",
+    "Body Painting Maternal",
+    "Pestañas Punto a Punto",
+    "Lifting de Pestañas",
+    "Cejas con Henna",
+  ];
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // Build WhatsApp message
-    const mensaje = `¡Hola Hana Beauty! 🌸%0A%0A*Nombre:* ${form.nombre}%0A*Servicio:* ${form.servicio}%0A*Fecha deseada:* ${form.fecha || 'Por confirmar'}%0A*Mensaje:* ${form.mensaje || '...'}`
+    const mensaje = `¡Hola Hana Beauty! 🌸%0A%0A*Nombre:* ${form.nombre}%0A*Servicio:* ${form.servicio}%0A*Fecha deseada:* ${form.fecha || "Por confirmar"}%0A*Mensaje:* ${form.mensaje || "..."}`;
     // Replace with your actual WhatsApp number
-    window.open(`https://wa.me/573127963323?text=${mensaje}`, '_blank')
-    setEnviado(true)
-  }
+    window.open(`https://wa.me/573127963323?text=${mensaje}`, "_blank");
+    setEnviado(true);
+  };
 
   return (
     <section id="contacto" className={styles.section}>
@@ -55,7 +58,15 @@ export default function Contacto() {
 
           <div className={styles.contactItems}>
             <div className={styles.contactItem}>
-              <div className={styles.contactIcon}>📱</div>
+              <div className={styles.contactIcon}>
+                <a
+                  href="https://wa.me/573127963323"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <WhatsApp width={32} height={32} />
+                </a>
+              </div>
               <div>
                 <p className={styles.contactLabel}>WhatsApp</p>
                 <a
@@ -70,7 +81,15 @@ export default function Contacto() {
             </div>
 
             <div className={styles.contactItem}>
-              <div className={styles.contactIcon}>📷</div>
+              <div className={styles.contactIcon}>
+                <a
+                  href="https://www.instagram.com/hanadez_beauty/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram width={32} height={32} />
+                </a>
+              </div>
               <div>
                 <p className={styles.contactLabel}>Instagram</p>
                 <a
@@ -85,7 +104,11 @@ export default function Contacto() {
             </div>
 
             <div className={styles.contactItem}>
-              <div className={styles.contactIcon}>📍</div>
+              <div className={styles.contactIcon}>
+                <a href="https://maps.app.goo.gl/tENevtscNj7NvTDGA" target="_blank" rel="noopener noreferrer">
+                  <GoogleMaps width={32} height={32} />
+                </a>
+              </div>
               <div>
                 <p className={styles.contactLabel}>Ubicación</p>
                 <p className={styles.contactValue}>Colombia</p>
@@ -111,7 +134,10 @@ export default function Contacto() {
               <p className={styles.successText}>
                 Te redirigimos a WhatsApp. Te responderemos muy pronto.
               </p>
-              <button className={styles.btnReset} onClick={() => setEnviado(false)}>
+              <button
+                className={styles.btnReset}
+                onClick={() => setEnviado(false)}
+              >
                 Enviar otro mensaje
               </button>
             </div>
@@ -209,5 +235,5 @@ export default function Contacto() {
         </div>
       </div>
     </section>
-  )
+  );
 }

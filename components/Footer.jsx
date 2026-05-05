@@ -1,5 +1,7 @@
 import styles from "./Footer.module.css";
 import Image from "next/image";
+import { Instagram } from "./svg/Instagram";
+import { WhatsApp } from "./svg/WhatsApp";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -28,7 +30,7 @@ export default function Footer() {
               className={styles.social}
               aria-label="Instagram"
             >
-              IG
+              <Instagram width={24} height={24} />
             </a>
             <a
               href="https://wa.me/573127963323"
@@ -37,7 +39,7 @@ export default function Footer() {
               className={styles.social}
               aria-label="WhatsApp"
             >
-              WA
+              <WhatsApp width={24} height={24} />
             </a>
           </div>
         </div>
@@ -53,6 +55,7 @@ export default function Footer() {
                 "Maquillaje Quinceañeras",
                 "Maquillaje Glam",
                 "Maquillaje Piel Madura",
+                "laminado de cejas",
               ].map((s) => (
                 <li key={s}>
                   <a href="#servicios" className={styles.colLink}>
