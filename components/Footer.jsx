@@ -108,7 +108,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className={styles.colText}>Lun – Sáb: 8am – 7pm</li>
-              <li className={styles.colText}>Colombia</li>
+              <li className={styles.colText}>Supía-Armenía. Colombia</li>
             </ul>
           </div>
         </div>

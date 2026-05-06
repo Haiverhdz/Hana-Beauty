@@ -111,7 +111,7 @@ export default function Contacto() {
               </div>
               <div>
                 <p className={styles.contactLabel}>Ubicación</p>
-                <p className={styles.contactValue}>Colombia</p>
+                <p className={styles.contactValue}>Supía-Armenía. Colombia</p>
               </div>
             </div>
 
