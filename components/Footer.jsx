@@ -89,7 +89,7 @@ export default function Footer() {
             <ul className={styles.colList}>
               <li>
                 <a
-                  href="https://wa.me/573127963323"
+                  href="https://wa.me/573127963323?text=¡Hola! Me gustaría agendar una cita en Hana Beauty."
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.colLink}
