@@ -33,7 +33,7 @@ export default function Footer() {
               <Instagram width={24} height={24} />
             </a>
             <a
-              href="https://wa.me/573127963323"
+              href="https://wa.me/573127963323?text=¡Hola! Me gustaría agendar una cita en Hana Beauty."
               target="_blank"
               rel="noopener noreferrer"
               className={styles.social}
@@ -130,7 +130,11 @@ export default function Footer() {
               Haiver Hernandez-Desarrollador web
             </a>
           </p>
-          <a className={styles.copy}  href="https://haiverhdez.me/" style={{ color: "#ffff43" }}>
+          <a
+            className={styles.copy}
+            href="https://haiverhdez.me/"
+            style={{ color: "#ffff43" }}
+          >
             https://haiverhdez.me/
           </a>
         </div>

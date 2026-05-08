@@ -60,7 +60,7 @@ export default function Contacto() {
             <div className={styles.contactItem}>
               <div className={styles.contactIcon}>
                 <a
-                  href="https://wa.me/573127963323"
+                  href="https://wa.me/573127963323?text=¡Hola! Me gustaría agendar una cita en Hana Beauty."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -70,7 +70,7 @@ export default function Contacto() {
               <div>
                 <p className={styles.contactLabel}>WhatsApp</p>
                 <a
-                  href="https://wa.me/573127963323"
+                  href="https://wa.me/573127963323?text=¡Hola! Me gustaría agendar una cita en Hana Beauty."
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.contactValue}
@@ -105,7 +105,11 @@ export default function Contacto() {
 
             <div className={styles.contactItem}>
               <div className={styles.contactIcon}>
-                <a href="https://maps.app.goo.gl/tENevtscNj7NvTDGA" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://maps.app.goo.gl/tENevtscNj7NvTDGA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <GoogleMaps width={32} height={32} />
                 </a>
               </div>
