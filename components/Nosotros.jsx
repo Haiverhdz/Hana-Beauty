@@ -1,22 +1,25 @@
-import styles from './Nosotros.module.css'
+import styles from "./Nosotros.module.css";
 
 const valores = [
   {
-    icon: '✦',
-    titulo: 'Arte & Precisión',
-    texto: 'Cada trazo es intencional. Combinamos técnica profesional con visión artística para crear looks únicos.',
+    icon: "✦",
+    titulo: "Arte & Precisión",
+    texto:
+      "Cada trazo es intencional. Combinamos técnica profesional con visión artística para crear looks únicos.",
   },
   {
-    icon: '✦',
-    titulo: 'Contigo siempre',
-    texto: 'Te escuchamos. Cada look nace de tu personalidad, tus deseos y la ocasión especial que mereces.',
+    icon: "✦",
+    titulo: "Contigo siempre",
+    texto:
+      "Te escuchamos. Cada look nace de tu personalidad, tus deseos y la ocasión especial que mereces.",
   },
   {
-    icon: '✦',
-    titulo: 'Productos Premium',
-    texto: 'Solo usamos marcas de alta calidad, hipoalergénicas y con larga duración. Tu piel lo merece.',
+    icon: "✦",
+    titulo: "Productos Premium",
+    texto:
+      "Solo usamos marcas de alta calidad, hipoalergénicas y con larga duración. Tu piel lo merece.",
   },
-]
+];
 
 export default function Nosotros() {
   return (
@@ -38,7 +41,11 @@ export default function Nosotros() {
           </div>
           <div className={styles.expBadge}>
             <span className={styles.expNum}>5+</span>
-            <span className={styles.expText}>Años de<br />experiencia</span>
+            <span className={styles.expText}>
+              Años de
+              <br />
+              experiencia
+            </span>
           </div>
         </div>
 
@@ -50,9 +57,9 @@ export default function Nosotros() {
           </h2>
 
           <p className={styles.text}>
-            Hana Beauty nació de la pasión por el maquillaje como arte. Somos un
-            estudio especializado en cosmetología donde cada cliente es tratada
-            como una obra de arte en proceso.
+            ana Beauty nació de la pasión por el maquillaje como arte. Somos un
+            estudio especializado en belleza integral donde cada cliente es
+            tratada como una obra de arte en proceso.
           </p>
           <p className={styles.text}>
             Ofrecemos desde maquillaje artístico y glam hasta tratamientos de
@@ -78,5 +85,5 @@ export default function Nosotros() {
         </div>
       </div>
     </section>
-  )
+  );
 }
