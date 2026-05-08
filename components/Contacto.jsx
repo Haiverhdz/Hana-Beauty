@@ -169,7 +169,7 @@ export default function Contacto() {
                     name="whatsapp"
                     type="tel"
                     required
-                    placeholder="+57 312 796 3323"
+                    placeholder="+573127963323"
                     className={styles.input}
                     value={form.whatsapp}
                     onChange={handleChange}
