@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hanabeauty.com'),
+  metadataBase: new URL('https://hanabeauty.com.co'),
 
   title: {
     default: 'Hana Beauty | Maquillaje Profesional en Supia y Armenia',
