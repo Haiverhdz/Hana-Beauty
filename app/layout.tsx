@@ -28,13 +28,11 @@ export const metadata: Metadata = {
   ],
 
   authors: [{ name: 'Hana Beauty' }],
-
   creator: 'Hana Beauty',
 
   openGraph: {
     title: 'Hana Beauty',
-    description:
-      'Maquillaje profesional y estética en Supia y Armenia.',
+    description: 'Maquillaje profesional y estética en Supia y Armenia.',
     url: 'https://hanabeauty.com',
     siteName: 'Hana Beauty',
     images: [
@@ -52,8 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Hana Beauty',
-    description:
-      'Maquillaje profesional y estética en Supia y Armenia.',
+    description: 'Maquillaje profesional y estética en Supia y Armenia.',
     images: ['/og-image.jpg'],
   },
 
@@ -67,6 +64,9 @@ export const metadata: Metadata = {
   },
 }
 
+const GTM_ID = 'GTM-MX996HTX'
+const GA_ID = 'G-VTNCN4KZCV'
+
 export default function RootLayout({
   children,
 }: {
@@ -74,28 +74,40 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>
+      <head>
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+
         {/* Google Tag Manager */}
-        <Script id="gtm" strategy="afterInteractive">
+        <Script id="gtm-init" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-MX996HTX');
+            })(window,document,'script','dataLayer','${GTM_ID}');
           `}
         </Script>
-
-        {/* Google Tag Manager (noscript) */}
+      </head>
+      <body>
+        {/* Google Tag Manager (noscript fallback) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-MX996HTX"
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
-            style={{
-              display: 'none',
-              visibility: 'hidden',
-            }}
+            style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
 
