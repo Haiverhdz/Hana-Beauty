@@ -1,4 +1,5 @@
 import styles from './WhatsAppBtn.module.css'
+import { trackEvent } from '@/lib/analytics'
 
 export default function WhatsAppBtn() {
   return (
@@ -8,6 +9,7 @@ export default function WhatsAppBtn() {
       rel="noopener noreferrer"
       className={styles.btn}
       aria-label="Contactar por WhatsApp"
+      onClick={() => trackEvent('click_whatsapp_btn')}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

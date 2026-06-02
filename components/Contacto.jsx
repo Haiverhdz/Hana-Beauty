@@ -5,6 +5,7 @@ import styles from "./Contacto.module.css";
 import { WhatsApp } from "./svg/WhatsApp";
 import { Instagram } from "./svg/Instagram";
 import { GoogleMaps } from "./svg/Maps";
+import { trackEvent } from '@/lib/analytics'
 
 export default function Contacto() {
   const [form, setForm] = useState({
@@ -63,6 +64,7 @@ export default function Contacto() {
                   href="https://wa.me/573127963323?text=¡Hola! Me gustaría agendar una cita en Hana Beauty."
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_whatsapp')}
                 >
                   <WhatsApp width={32} height={32} />
                 </a>
@@ -86,6 +88,7 @@ export default function Contacto() {
                   href="https://www.instagram.com/hanadez_beauty/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_instagram')}
                 >
                   <Instagram width={32} height={32} />
                 </a>
@@ -97,6 +100,7 @@ export default function Contacto() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.contactValue}
+                  onClick={() => trackEvent('click_instagram')}
                 >
                   @hanadez_beauty
                 </a>
@@ -109,6 +113,7 @@ export default function Contacto() {
                   href="https://maps.app.goo.gl/tENevtscNj7NvTDGA"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_google_maps')}
                 >
                   <GoogleMaps width={32} height={32} />
                 </a>
